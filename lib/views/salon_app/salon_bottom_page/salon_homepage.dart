@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
@@ -113,50 +115,38 @@ class _SalonHomePageState extends State<SalonHomePage> {
                     ...List.generate(5, (i) => const HomeSalonTile()),
                     textButton(onTap: () {}, text: "view"),
                     ExpandedButtonView(title: "Call Next", ontap: () {}),
-                    ListView.builder(
+                    ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return Row(
+                      itemCount: 3,
+                      itemBuilder: (context, i) => Container(
+                        height: 50,
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Row(
                           children: [
                             Expanded(
-                              flex: 2,
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                color: Colors.red,
-                                child: Text(
-                                  "Ch 01",
-                                  style: TextThemeProvider.bodyTextSecondary,
-                                ),
-                              ),
-                            ),
+                                flex: 1,
+                                child: SizedBox(
+                                  child: Text("Ch ${i + 1}",
+                                      style: TextThemeProvider.bodyTextSmall),
+                                )),
                             Expanded(
-                              flex: 5,
-                              child: Container(
-                                alignment: Alignment.center,
-                                color: Colors.yellow,
-                                child: Text(
-                                  "Ester Howard",
-                                  style: TextThemeProvider.bodyTextSecondary
-                                      .copyWith(fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ),
+                                flex: 2,
+                                child: SizedBox(
+                                  child: Text("Esther Howard",
+                                      style: TextThemeProvider.bodyTextSmall),
+                                )),
                             Expanded(
-                              flex: 3,
-                              child: Container(
-                                alignment: Alignment.centerRight,
-                                color: Colors.pink,
-                                child: Text(
-                                  "2 in queque",
-                                  style: TextThemeProvider.bodyTextSecondary
-                                      .copyWith(fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ),
+                                flex: 1,
+                                child: SizedBox(
+                                  child: Text("${Random().nextInt(5)} in queue",
+                                      style: TextThemeProvider.bodyTextSmall),
+                                ))
                           ],
-                        );
+                        ),
+                      ),
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const Divider();
                       },
                     ),
                   ],

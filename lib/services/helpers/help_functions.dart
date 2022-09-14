@@ -30,6 +30,9 @@ pushToandRemove(BuildContext context, Widget child) =>
         MaterialPageRoute(builder: (_) => child), (route) => false);
 popView(BuildContext context) => Navigator.of(context).pop();
 
+/* Gender List */
+List<String> genders = ["Male", "Female", "Other"];
+
 /* Custome App Bar with Back Button Only */
 PreferredSizeWidget emptyAppBar({String title = '', double elevation = 1}) =>
     AppBar(
@@ -38,7 +41,7 @@ PreferredSizeWidget emptyAppBar({String title = '', double elevation = 1}) =>
       foregroundColor: AppColors.blackColor,
       centerTitle: true,
       title:
-          title == '' ? null : Text(title, style: TextThemeProvider.heading2),
+          title == '' ? null : Text(title, style: TextThemeProvider.heading1),
     );
 
 getRoute(BuildContext context, String role) {

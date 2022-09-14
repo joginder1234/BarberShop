@@ -4,7 +4,7 @@ class OutlinedAppIcons {
   static const String chatIcon = "assets/outline_icons/Chat.svg";
   static const String folderIcon = "assets/outline_icons/Folder.svg";
   static const String graphIcon = "assets/outline_icons/Graph.svg";
-  static const String heartIcon = "assets/outline_icons/Heart.svg";
+  static const String favoriteIcon = "assets/outline_icons/Heart.svg";
   static const String homeIcon = "assets/outline_icons/Home.svg";
   static const String notificationIcon =
       "assets/outline_icons/Notification.svg";
@@ -22,6 +22,8 @@ class OutlinedAppIcons {
   static const String shieldDone = "assets/outline_icons/Shield_Done.svg";
   static const String shieldFail = "assets/outline_icons/Shield_Fail.svg";
   static const String timeCircle = "assets/outline_icons/Time_Circle.svg";
+  static const String downloadIcon = "assets/outline_icons/Downlaod.svg";
+  static const String shareIcon = "assets/outline_icons/Share.svg";
 }
 
 class SolidAppIcons {}

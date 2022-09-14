@@ -2,7 +2,7 @@ import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/views/customer_app/account/customer_account.dart';
 import 'package:barbershop/views/customer_app/customer_home.dart';
-import 'package:barbershop/views/customer_app/customer_news.dart';
+import 'package:barbershop/views/customer_app/news/customer_news.dart';
 import 'package:barbershop/views/customer_app/customer_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

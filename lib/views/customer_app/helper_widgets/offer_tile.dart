@@ -16,11 +16,11 @@ class CustomerAppOfferTile extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: SizedBox(
           width: getWidth(context) * 0.75,
+          height: getWidth(context) * 0.50,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AspectRatio(
-                aspectRatio: 16 / 8,
+              Expanded(
                 child: Container(
                   width: getWidth(context) * 0.75,
                   decoration: const BoxDecoration(
@@ -86,7 +86,6 @@ class CustomDescriptionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-      height: 50,
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(12))),
       child: Row(
