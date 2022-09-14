@@ -28,13 +28,15 @@ class _ExpandedButtonViewState extends State<ExpandedButtonView> {
       children: [
         Expanded(
             child: SizedBox(
-          child: FlatButton(
-              padding: const EdgeInsets.all(16),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              color: widget.isDisabled == true
-                  ? AppColors.textFieldBorder
-                  : widget.btnColor,
+          child: TextButton(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10))),
+                  backgroundColor: MaterialStateProperty.all(
+                      widget.isDisabled == true
+                          ? AppColors.textFieldBorder
+                          : widget.btnColor)),
               onPressed: widget.isDisabled ? () {} : () => widget.ontap(),
               child: Text(widget.title,
                   style: TextThemeProvider.heading3

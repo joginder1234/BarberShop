@@ -15,6 +15,13 @@ class OutlinedAppIcons {
   static const String filterIcon = "assets/outline_icons/Filter.svg";
   static const String documentIcon = "assets/outline_icons/Paper.svg";
   static const String profileIcon = "assets/outline_icons/Profile.svg";
+  static const String serviceIcon = "assets/outline_icons/Service.svg";
+  static const String chairIcon = "assets/outline_icons/Chair.svg";
+  static const String addUser = "assets/outline_icons/AddUser.svg";
+  static const String danger = "assets/outline_icons/Danger.svg";
+  static const String shieldDone = "assets/outline_icons/Shield_Done.svg";
+  static const String shieldFail = "assets/outline_icons/Shield_Fail.svg";
+  static const String timeCircle = "assets/outline_icons/Time_Circle.svg";
 }
 
 class SolidAppIcons {}

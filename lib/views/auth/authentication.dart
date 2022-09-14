@@ -8,6 +8,7 @@ import 'package:barbershop/views/auth/forgot_password/forgot_password.dart';
 import 'package:barbershop/views/auth/phone_auth/otp_view.dart';
 import 'package:barbershop/views/auth/registration/choose_role.dart';
 import 'package:barbershop/views/customer_app/bottom_nav_bar.dart';
+import 'package:barbershop/views/salon_app/salon_bottom_nav.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:barbershop/widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -135,7 +136,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
       if (user.isEmpty) {
         showToast("Account not found. Please register");
       } else {
-        if (user[0].password == _passController.text) {
+        if (user[0].password == _passController.text.trim()) {
           getRoute(user[0].role);
         } else {
           showToast("Wront Password");
@@ -158,7 +159,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
       case "customer":
         return pushTo(context, const BottomNavScreen());
       case "salon":
-        return showToast("Comming Soon");
+        return pushTo(context, const SalonBottomNavView());
       case "barber":
         return showToast("Comming Soon");
       default:
