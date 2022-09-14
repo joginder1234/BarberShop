@@ -19,6 +19,7 @@ class CustomerAppSalonTile extends StatelessWidget {
           ListTile(
             leading: const CircleAvatar(
               radius: 22,
+              backgroundColor: AppColors.textFieldBorder,
               backgroundImage: NetworkImage(salon_image),
             ),
             title: Text("Green Scissors Salon",
@@ -66,10 +67,12 @@ class CustomerAppSalonTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                FlatButton(
-                    color: AppColors.activeButtonColor,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(80)),
+                TextButton(
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80))),
+                        backgroundColor: MaterialStateProperty.all(
+                            AppColors.activeButtonColor)),
                     onPressed: () {},
                     child: Text("Join Queue",
                         style: TextThemeProvider.bodyTextSecondary

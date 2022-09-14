@@ -1,6 +1,8 @@
 import 'package:barbershop/backend/app_data_handler.dart';
 import 'package:barbershop/onboarding.dart';
+import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -13,6 +15,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: AppColors.whiteColor));
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AppDataProvider())

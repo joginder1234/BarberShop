@@ -10,6 +10,7 @@ class CustomTextFieldView extends StatelessWidget {
   bool isSecure;
   String suffixIcon;
   bool numPad;
+  int maxlines;
   bool readOnly;
   bool isObsecure;
   Function? ontap;
@@ -24,6 +25,7 @@ class CustomTextFieldView extends StatelessWidget {
       this.isObsecure = true,
       this.numPad = false,
       this.readOnly = false,
+      this.maxlines = 1,
       this.ontap,
       this.onchange})
       : super(key: key);
@@ -33,8 +35,9 @@ class CustomTextFieldView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: AppColors.textFieldBorder)),
+          border: Border.all(color: AppColors.blackColor.withOpacity(0.3))),
       child: TextField(
+        maxLines: maxlines,
         readOnly: readOnly,
         keyboardType: numPad ? TextInputType.phone : TextInputType.text,
         onTap: ontap != null ? () => ontap!() : null,

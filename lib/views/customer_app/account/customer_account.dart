@@ -1,7 +1,10 @@
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
-import 'package:barbershop/views/customer_app/account/profile.dart';
-import 'package:barbershop/views/customer_app/account/track_my_queue.dart';
+import 'package:barbershop/views/customer_app/account/FAQs/customer_faq.dart';
+import 'package:barbershop/views/customer_app/account/favorites/customer_favorite.dart';
+import 'package:barbershop/views/customer_app/account/help_support/customer_help.dart';
+import 'package:barbershop/views/customer_app/account/profile/profile.dart';
+import 'package:barbershop/views/customer_app/account/track_queue/track_my_queue.dart';
 import 'package:flutter/material.dart';
 
 class CustomerAppAccountView extends StatefulWidget {
@@ -15,9 +18,9 @@ class _CustomerAppAccountViewState extends State<CustomerAppAccountView> {
   final List<AccountBtnClass> _btn = [
     AccountBtnClass("Profile", "profile"),
     AccountBtnClass("Track my Queue", 'trackQueue'),
-    AccountBtnClass("Favorites", ''),
-    AccountBtnClass("FAQ's", ''),
-    AccountBtnClass("Help & Support", ''),
+    AccountBtnClass("Favorites", 'favorites'),
+    AccountBtnClass("FAQ's", 'faq'),
+    AccountBtnClass("Help & Support", 'help'),
     AccountBtnClass("Terms & Conditions", ''),
     AccountBtnClass("Privacy Policy", ''),
   ];
@@ -64,6 +67,12 @@ class _CustomerAppAccountViewState extends State<CustomerAppAccountView> {
         return pushTo(context, const CustomerProfileView());
       case "trackQueue":
         return pushTo(context, const CustomerTrackQueue());
+      case "favorites":
+        return pushTo(context, const CustomerFavoriteView());
+      case "faq":
+        return pushTo(context, const CustomerFAQsView());
+      case "help":
+        return pushTo(context, const CustomerHelpAndSupportView());
       default:
         return null;
     }

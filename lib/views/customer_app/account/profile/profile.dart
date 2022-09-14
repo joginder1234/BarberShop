@@ -2,6 +2,7 @@ import 'package:barbershop/config.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
+import 'package:barbershop/views/customer_app/account/profile/customer_edit_profile.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -107,7 +108,23 @@ class _CustomerProfileViewState extends State<CustomerProfileView> {
               ),
             ),
             addHeight(25),
-            ExpandedButtonView(title: "Edit Profile", ontap: () {})
+            ExpandedButtonView(
+                title: "Edit Profile",
+                ontap: () =>
+                    pushTo(context, const CustomerAppEditProfileview())),
+            // addHeight(25),
+            // Row(
+            //   children: const [
+            //     Expanded(
+            //         child: SizedBox(
+            //       child: SalonTile(),
+            //     )),
+            //     Expanded(
+            //         child: SizedBox(
+            //       child: SalonTile(),
+            //     ))
+            //   ],
+            // )
           ],
         ),
       )),

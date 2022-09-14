@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextThemeProvider {
+  static TextStyle heading0 =
+      GoogleFonts.poppins(fontSize: 32, fontWeight: FontWeight.w700);
   static TextStyle heading1 =
       GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.w600);
   static TextStyle heading2 =

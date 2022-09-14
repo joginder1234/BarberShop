@@ -17,7 +17,6 @@ class GenderDetailView extends StatefulWidget {
 }
 
 class _GenderDetailViewState extends State<GenderDetailView> {
-  List<String> genders = ["Male", "Female", "Other"];
   String selectedGender = "Male";
 
   @override
