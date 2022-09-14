@@ -2,6 +2,7 @@ import 'package:barbershop/config.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
+import 'package:barbershop/widgets/custom_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -67,16 +68,7 @@ class CustomerAppSalonTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                TextButton(
-                    style: ButtonStyle(
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(80))),
-                        backgroundColor: MaterialStateProperty.all(
-                            AppColors.activeButtonColor)),
-                    onPressed: () {},
-                    child: Text("Join Queue",
-                        style: TextThemeProvider.bodyTextSecondary
-                            .copyWith(color: AppColors.whiteColor)))
+                CustomActionButton(label: "Join Queue")
               ],
             ),
           )
