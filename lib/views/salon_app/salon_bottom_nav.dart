@@ -2,8 +2,8 @@ import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/views/customer_app/bottom_nav_bar.dart';
 import 'package:barbershop/views/salon_app/salon_bottom_page/salon_chair_view.dart';
-import 'package:barbershop/views/salon_app/salon_bottom_page/salon_homepage.dart';
-import 'package:barbershop/views/salon_app/salon_bottom_page/salon_myaccount_view.dart';
+import 'package:barbershop/views/salon_app/salon_homepage/salon_homepage.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_account_view.dart';
 import 'package:barbershop/views/salon_app/salon_bottom_page/salon_news_view.dart';
 import 'package:barbershop/views/salon_app/salon_bottom_page/salon_service_view.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class _SalonBottomNavViewState extends State<SalonBottomNavView> {
     const SalonAppServiceView(),
     const SalonAppChairView(),
     const SalonAppNewsView(),
-    const SalonAppAccountView(),
+    const SalonAccountView(),
   ];
 
   final List<BottomNavClass> _bottombarItems = [

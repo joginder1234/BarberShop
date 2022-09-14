@@ -5,8 +5,6 @@ import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/widgets/horizontal_news_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../../services/stylesheet/icons.dart';
 import '../../../../widgets/news_highlight_card.dart';
 
 class CustomerNewsViewForYou extends StatelessWidget {

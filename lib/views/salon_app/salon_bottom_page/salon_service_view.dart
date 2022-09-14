@@ -1,5 +1,5 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:barbershop/services/helpers/help_functions.dart';
+import 'package:flutter/material.dart';
 
 class SalonAppServiceView extends StatefulWidget {
   const SalonAppServiceView({super.key});
@@ -11,6 +11,8 @@ class SalonAppServiceView extends StatefulWidget {
 class _SalonAppServiceViewState extends State<SalonAppServiceView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: emptyAppBar(title: "Edit Chair"),
+    );
   }
 }

@@ -1,13 +1,12 @@
 import 'dart:math';
-
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/customer_home.dart';
-import 'package:barbershop/views/customer_app/helper_widgets/home_salon_tile.dart';
-
-import 'package:barbershop/views/salon_app/salon_bottom_page/salon_walk_in_customer.dart';
+import 'package:barbershop/views/salon_app/salon_notification_view/salon_notification.dart';
+import 'package:barbershop/widgets/home_salon_tile.dart';
+import 'package:barbershop/views/salon_app/salon_homepage/salon_walk_in_customer.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,7 +50,9 @@ class _SalonHomePageState extends State<SalonHomePage> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          pushTo(context, SalonNotification());
+                        },
                         icon: SvgPicture.asset(
                           OutlinedAppIcons.notificationIcon,
                           color: AppColors.primaryColor,
@@ -112,9 +113,33 @@ class _SalonHomePageState extends State<SalonHomePage> {
                 addHeight(20),
                 Column(
                   children: [
-                    ...List.generate(5, (i) => const HomeSalonTile()),
+                    ...List.generate(
+                        5,
+                        (i) => HomeSalonTile(
+                            distance: "2Km",
+                            title: "Jhone Doe",
+                            subtitle: "2:00PM, Barber Name",
+                            status: "Confirmed",
+                            rating: "4.6",
+                            button: "Skip",
+                            onTap: () {})),
                     textButton(onTap: () {}, text: "view"),
                     ExpandedButtonView(title: "Call Next", ontap: () {}),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Barbers",
+                            style: TextThemeProvider.bodyText
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                          Text("31 in queue for 8 Barbers",
+                              style: TextThemeProvider.bodyTextSmall)
+                        ],
+                      ),
+                    ),
                     ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
@@ -137,11 +162,12 @@ class _SalonHomePageState extends State<SalonHomePage> {
                                       style: TextThemeProvider.bodyTextSmall),
                                 )),
                             Expanded(
-                                flex: 1,
-                                child: SizedBox(
-                                  child: Text("${Random().nextInt(5)} in queue",
-                                      style: TextThemeProvider.bodyTextSmall),
-                                ))
+                              flex: 1,
+                              child: SizedBox(
+                                child: Text("${Random().nextInt(5)} in queue",
+                                    style: TextThemeProvider.bodyTextSmall),
+                              ),
+                            ),
                           ],
                         ),
                       ),

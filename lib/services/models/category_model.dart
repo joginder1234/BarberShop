@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:barbershop/config.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 

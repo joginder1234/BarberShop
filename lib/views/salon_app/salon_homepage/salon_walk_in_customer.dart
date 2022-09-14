@@ -1,8 +1,7 @@
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
-import 'package:barbershop/views/customer_app/helper_widgets/home_salon_tile.dart';
-import 'package:barbershop/views/salon_app/salon_bottom_page/salon_homepage.dart';
+import 'package:barbershop/widgets/home_salon_tile.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:barbershop/widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -19,25 +18,7 @@ class _SalonWalkInCustomerState extends State<SalonWalkInCustomer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppColors.whiteColor,
-        title: Text(
-          "Walk-In customers",
-          style:
-              TextThemeProvider.heading3.copyWith(color: AppColors.blackColor),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            pushToandRemove(context, const SalonHomePage());
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: AppColors.blackColor,
-          ),
-        ),
-      ),
+      appBar: emptyAppBar(title: "Walk-In customers"),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -56,7 +37,7 @@ class _SalonWalkInCustomerState extends State<SalonWalkInCustomer> {
               ExpandedButtonView(title: "Add To Queue", ontap: () {}),
               Container(
                 alignment: Alignment.centerLeft,
-                margin: const EdgeInsets.only(top: 30),
+                margin: const EdgeInsets.only(top: 30, bottom: 20),
                 child: Text(
                   "Today's Walk-in",
                   style: TextThemeProvider.heading3
@@ -68,7 +49,14 @@ class _SalonWalkInCustomerState extends State<SalonWalkInCustomer> {
                   child: ListView.builder(
                     itemCount: 7,
                     itemBuilder: (context, index) {
-                      return const HomeSalonTile();
+                      return HomeSalonTile(
+                          title: "Jhone Doe",
+                          subtitle: "2:00PM, Barber Name",
+                          status: "Confirmed",
+                          rating: "4.8",
+                          distance: "3KM",
+                          button: "Skip",
+                          onTap: () {});
                     },
                   ),
                 ),

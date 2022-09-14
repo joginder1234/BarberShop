@@ -71,33 +71,34 @@ homeSalonWork(
     required subtitle,
     required icon,
     required onTap}) {
-  return GestureDetector(
-    onTap: () => onTap,
-    child: Card(
-      elevation: 1.4,
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width * 0.43,
-        child: Row(
-          children: [
-            SvgPicture.asset(icon),
-            addWidth(10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextThemeProvider.bodyTextSmall
-                      .copyWith(fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  subtitle,
-                  style: TextThemeProvider.bodyTextSmall
-                      .copyWith(color: Colors.grey),
-                )
-              ],
-            )
-          ],
+  return Expanded(
+    child: GestureDetector(
+      onTap: () => onTap,
+      child: Card(
+        elevation: 1.4,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            children: [
+              SvgPicture.asset(icon),
+              addWidth(10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextThemeProvider.bodyTextSmall
+                        .copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    subtitle,
+                    style: TextThemeProvider.bodyTextSmall
+                        .copyWith(color: Colors.grey),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     ),
