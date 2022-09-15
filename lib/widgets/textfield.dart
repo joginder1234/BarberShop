@@ -13,6 +13,7 @@ class CustomTextFieldView extends StatelessWidget {
   int maxlines;
   bool readOnly;
   bool isObsecure;
+  bool isDisabled;
   Function? ontap;
   Function(String)? onchange;
   CustomTextFieldView(
@@ -26,6 +27,7 @@ class CustomTextFieldView extends StatelessWidget {
       this.numPad = false,
       this.readOnly = false,
       this.maxlines = 1,
+      this.isDisabled = false,
       this.ontap,
       this.onchange})
       : super(key: key);
@@ -35,25 +37,36 @@ class CustomTextFieldView extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: AppColors.blackColor.withOpacity(0.3))),
+          border: Border.all(
+              color: isDisabled
+                  ? AppColors.blackfaddedColor
+                  : AppColors.blackLightColor)),
       child: TextField(
         maxLines: maxlines,
-        readOnly: readOnly,
+        readOnly: isDisabled || readOnly,
         keyboardType: numPad ? TextInputType.phone : TextInputType.text,
         onTap: ontap != null ? () => ontap!() : null,
         onChanged: onchange,
         controller: controller,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           suffixIcon:
               IconButton(onPressed: null, icon: SvgPicture.asset(suffixIcon)),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           label: label == ""
               ? null
               : Text(" $label ",
-                  style: TextThemeProvider.bodyTextSecondary
-                      .copyWith(backgroundColor: AppColors.whiteColor)),
+                  style: TextThemeProvider.bodyTextSecondary.copyWith(
+                      backgroundColor: AppColors.whiteColor,
+                      color: isDisabled
+                          ? AppColors.blackLightColor
+                          : AppColors.blackColor)),
           floatingLabelAlignment: FloatingLabelAlignment.start,
           hintText: hint,
+          hintStyle: TextThemeProvider.bodyTextSmall.copyWith(
+              color: isDisabled
+                  ? AppColors.blackLightColor.withOpacity(0.2)
+                  : AppColors.blackLightColor),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none),

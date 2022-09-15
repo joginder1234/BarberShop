@@ -66,7 +66,7 @@ class _CustomerAppAccountViewState extends State<CustomerAppAccountView> {
       case "profile":
         return pushTo(context, const CustomerProfileView());
       case "trackQueue":
-        return pushTo(context, const CustomerTrackQueue());
+        return pushTo(context, CustomerTrackQueue());
       case "favorites":
         return pushTo(context, const CustomerFavoriteView());
       case "faq":

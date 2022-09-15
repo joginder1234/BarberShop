@@ -31,12 +31,14 @@ class ExpandedButtonView extends StatelessWidget {
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(radius))),
                   backgroundColor: MaterialStateProperty.all(isDisabled == true
-                      ? AppColors.textFieldBorder
+                      ? AppColors.blackfaddedColor
                       : btnColor)),
-              onPressed: isDisabled ? () {} : () => ontap(),
+              onPressed: isDisabled ? null : () => ontap(),
               child: Text(title,
-                  style:
-                      TextThemeProvider.heading3.copyWith(color: titleColor))),
+                  style: TextThemeProvider.heading3.copyWith(
+                      color: isDisabled
+                          ? AppColors.blackLightColor
+                          : titleColor))),
         )),
       ],
     );

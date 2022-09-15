@@ -7,6 +7,7 @@ import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/account/track_queue/cancel_queue.dart';
 import 'package:barbershop/views/customer_app/account/track_queue/move_queue.dart';
+import 'package:barbershop/views/customer_app/bottom_nav_bar.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:barbershop/widgets/custom_card_widget.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +16,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class CustomerTrackQueue extends StatelessWidget {
-  const CustomerTrackQueue({Key? key}) : super(key: key);
+  bool isNewBooking;
+  CustomerTrackQueue({Key? key, this.isNewBooking = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String queueId = "hgfjsdfkj4987rfdfkhbd7";
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      appBar: emptyAppBar(title: "Track My Queue", elevation: 0),
+      appBar: isNewBooking
+          ? null
+          : emptyAppBar(title: "Track My Queue", elevation: 0),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
@@ -30,6 +34,15 @@ class CustomerTrackQueue extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              isNewBooking
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: Center(
+                          child: Text("Successfully joined queue!",
+                              textAlign: TextAlign.center,
+                              style: TextThemeProvider.heading0)),
+                    )
+                  : const SizedBox(),
               CustomCardWidget(
                 width: getWidth(context),
                 child: Stack(
@@ -199,52 +212,35 @@ class CustomerTrackQueue extends StatelessWidget {
                             .copyWith(color: AppColors.activeButtonColor))),
               ),
               addHeight(25),
-              ExpandedButtonView(title: "Refresh", ontap: () {}),
-              addHeight(10),
-              ExpandedButtonView(
-                  title: "Cancel Queue",
-                  ontap: () => showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                            actionsPadding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 20),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
-                            title: Text(
-                                "Do you really want to cancel the Queue from the salon?",
-                                textAlign: TextAlign.center,
-                                style: TextThemeProvider.heading2),
-                            actions: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: SizedBox(
-                                      child: ExpandedButtonView(
-                                          radius: 80,
-                                          title: "Yes, I am sure",
-                                          ontap: () => pushTo(context,
-                                              const CustomerCancelQueueInfo()),
-                                          titleColor:
-                                              AppColors.activeButtonColor,
-                                          btnColor: AppColors.textFieldBorder),
-                                    ),
-                                  ),
-                                  addWidth(5),
-                                  Expanded(
-                                    child: SizedBox(
-                                      child: ExpandedButtonView(
-                                        radius: 80,
-                                        title: "No, by mistake",
-                                        ontap: () => popView(context),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          )),
-                  btnColor: AppColors.whiteColor,
-                  titleColor: AppColors.activeButtonColor),
+              isNewBooking
+                  ? Column(
+                      children: [
+                        ExpandedButtonView(
+                            title: "HOME",
+                            ontap: () =>
+                                pushTo(context, const BottomNavScreen()),
+                            btnColor: AppColors.blackfaddedColor,
+                            titleColor: AppColors.activeButtonColor),
+                        addHeight(10),
+                        ExpandedButtonView(
+                            title: "Join Another Queue", ontap: () {}),
+                      ],
+                    )
+                  : Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ExpandedButtonView(title: "Refresh", ontap: () {}),
+                        addHeight(10),
+                        ExpandedButtonView(
+                            title: "Cancel Queue",
+                            ontap: () => showDialog(
+                                context: context,
+                                builder: (context) =>
+                                    const CancelQueueDialog()),
+                            btnColor: AppColors.whiteColor,
+                            titleColor: AppColors.activeButtonColor)
+                      ],
+                    ),
               addHeight(10),
               ExpandedButtonView(
                   title: "Move Queue",
@@ -255,6 +251,49 @@ class CustomerTrackQueue extends StatelessWidget {
           ),
         ),
       )),
+    );
+  }
+}
+
+class CancelQueueDialog extends StatelessWidget {
+  const CancelQueueDialog({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      actionsPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      title: Text("Do you really want to cancel the Queue from the salon?",
+          textAlign: TextAlign.center, style: TextThemeProvider.heading2),
+      actions: [
+        Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                child: ExpandedButtonView(
+                    radius: 80,
+                    title: "Yes, I am sure",
+                    ontap: () =>
+                        pushTo(context, const CustomerCancelQueueInfo()),
+                    titleColor: AppColors.activeButtonColor,
+                    btnColor: AppColors.textFieldBorder),
+              ),
+            ),
+            addWidth(5),
+            Expanded(
+              child: SizedBox(
+                child: ExpandedButtonView(
+                  radius: 80,
+                  title: "No, by mistake",
+                  ontap: () => popView(context),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 class AppColors {
   static const Color primaryColor = Color(0xff554AF0);
   static const Color blackColor = Color(0xff04021D);
-  static Color blackLightColor = const Color(0xff04021D).withOpacity(0.4);
+  static Color blackLightColor = const Color(0xff04021D).withOpacity(0.3);
+  static Color blackfaddedColor = const Color(0xff04021D).withOpacity(0.02);
   static const Color statusErrorColor = Color(0xffff0000);
   static const Color statusBadColor = Color(0xffff6b00);
   static const Color statusGoodColor = Color(0xff15AA2C);

@@ -1,4 +1,5 @@
 import 'package:barbershop/services/helpers/help_functions.dart';
+import 'package:barbershop/services/helpers/toast.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/join_queue/select_specialist.dart';
@@ -20,6 +21,7 @@ class CustomerAppSelectServiceView extends StatefulWidget {
 
 class _CustomerAppSelectServiceViewState
     extends State<CustomerAppSelectServiceView> {
+  String selectedService = 'BarberShop';
   @override
   void initState() {
     getSession();
@@ -61,7 +63,10 @@ class _CustomerAppSelectServiceViewState
                 itemBuilder: (context, i) {
                   final item = categoryList[i];
                   return InkWell(
-                    onTap: () => database.selectService(item.title),
+                    onTap: () {
+                      setState(() => selectedService = item.title);
+                      database.selectService(item.title);
+                    },
                     child: SalonServiceTileWidget(
                         isSelected: isSelected(item.title), item: item),
                   );
@@ -73,7 +78,9 @@ class _CustomerAppSelectServiceViewState
         padding: const EdgeInsets.all(20),
         child: ExpandedButtonView(
             title: "Next",
-            ontap: () => const CustomerAppSelectSpecialistView()),
+            ontap: () => isSelected(selectedService)
+                ? pushTo(context, const CustomerAppSelectSpecialistView())
+                : showToast("Please Select service to continue")),
       ),
     );
   }
