@@ -1,13 +1,14 @@
 import 'package:barbershop/config.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
+import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_offer/salon_add_new_offer.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_offer/salon_edit_offer.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_profile/salon_edit_profile.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SalonOfferAppView extends StatefulWidget {
   const SalonOfferAppView({super.key});
@@ -46,22 +47,48 @@ class _SalonOfferAppViewState extends State<SalonOfferAppView> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 70),
-                                child: AspectRatio(
-                                  aspectRatio: 16 / 9,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.horizontal(
-                                          right: Radius.circular(18),
-                                          left: Radius.circular(18)),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(18),
-                                      child: Image.network(
-                                        profile_image,
-                                        fit: BoxFit.cover,
+                                child: Stack(
+                                  alignment: Alignment.bottomRight,
+                                  children: [
+                                    AspectRatio(
+                                      aspectRatio: 16 / 9,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.horizontal(
+                                              right: Radius.circular(18),
+                                              left: Radius.circular(18)),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(18),
+                                          child: Image.network(
+                                            profile_image,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: SvgPicture.asset(
+                                              OutlinedAppIcons.cameraIcon),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {
+                                            pushTo(context,
+                                                const SalonEditOfferAppView());
+                                          },
+                                          icon: SvgPicture.asset(
+                                            OutlinedAppIcons.editIcon,
+                                            color: AppColors.whiteColor,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
                               ),
                               ListTile(
@@ -81,7 +108,7 @@ class _SalonOfferAppViewState extends State<SalonOfferAppView> {
                                         color: AppColors.primaryColor),
                                     children: const [
                                       TextSpan(
-                                          text: " OFF",
+                                          text: "  OFF",
                                           style: TextStyle(
                                               fontSize: 6,
                                               color: AppColors.primaryColor)),
@@ -105,7 +132,7 @@ class _SalonOfferAppViewState extends State<SalonOfferAppView> {
         child: ExpandedButtonView(
             title: "Add New Offer",
             ontap: () {
-              pushTo(context, const SalonEditOfferAppView());
+              pushTo(context, const SalonAddNewOfferAppView());
             }),
       ),
     );

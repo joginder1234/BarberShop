@@ -33,6 +33,9 @@ popView(BuildContext context) => Navigator.of(context).pop();
 /* Gender List */
 List<String> genders = ["Male", "Female", "Other"];
 
+/* Salon Offers */
+List<String> salonOffers = ["Select Offer", "10%", "20%", "30%"];
+
 /* Custome App Bar with Back Button Only */
 PreferredSizeWidget emptyAppBar({String title = '', double elevation = 1}) =>
     AppBar(
