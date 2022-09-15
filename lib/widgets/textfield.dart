@@ -47,9 +47,11 @@ class CustomTextFieldView extends StatelessWidget {
           suffixIcon:
               IconButton(onPressed: null, icon: SvgPicture.asset(suffixIcon)),
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          label: Text(" $label ",
-              style: TextThemeProvider.bodyTextSecondary
-                  .copyWith(backgroundColor: AppColors.whiteColor)),
+          label: label == ""
+              ? null
+              : Text(" $label ",
+                  style: TextThemeProvider.bodyTextSecondary
+                      .copyWith(backgroundColor: AppColors.whiteColor)),
           floatingLabelAlignment: FloatingLabelAlignment.start,
           hintText: hint,
           border: OutlineInputBorder(

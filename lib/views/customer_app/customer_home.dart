@@ -53,7 +53,10 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
                       addWidth(7),
                       const Expanded(
                           child: SizedBox(
-                        child: Text("Marconi Street, Kern County, CA-93504"),
+                        child: Text(
+                          "Marconi Street, Kern County, CA-93504",
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ))
                     ],
                   ),

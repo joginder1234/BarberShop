@@ -1,3 +1,4 @@
+import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
@@ -5,6 +6,7 @@ import 'package:barbershop/views/customer_app/news/news_view/customer_new_view_f
 import 'package:barbershop/views/customer_app/news/news_view/customer_new_view_tutorial.dart';
 import 'package:barbershop/views/customer_app/news/news_view/customer_news_view_hairtips.dart';
 import 'package:barbershop/views/customer_app/news/news_view/customer_news_view_tranding.dart';
+import 'package:barbershop/views/customer_app/news/upload_content_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -72,7 +74,8 @@ class _CustomerAppNewsViewState extends State<CustomerAppNewsView>
                             flex: 1,
                             child: SizedBox(
                               child: IconButton(
-                                  onPressed: () {},
+                                  onPressed: () => pushTo(context,
+                                      const CustomerAppUploadNewContent()),
                                   icon: SvgPicture.asset(
                                     OutlinedAppIcons.uploadIcon,
                                     color: AppColors.activeButtonColor,

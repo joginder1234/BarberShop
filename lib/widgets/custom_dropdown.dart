@@ -25,9 +25,11 @@ class CustomDropdownButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 borderSide: const BorderSide(color: AppColors.textFieldBorder)),
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            label: Text(" $label ",
-                style: TextThemeProvider.bodyTextSecondary
-                    .copyWith(backgroundColor: AppColors.whiteColor)),
+            label: label == ""
+                ? null
+                : Text(" $label ",
+                    style: TextThemeProvider.bodyTextSecondary
+                        .copyWith(backgroundColor: AppColors.whiteColor)),
             floatingLabelAlignment: FloatingLabelAlignment.start,
           ),
           borderRadius: BorderRadius.circular(10),

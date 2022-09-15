@@ -47,6 +47,7 @@ class NewsCardHighlight extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextThemeProvider.bodyText
                             .copyWith(fontWeight: FontWeight.w700)),
+                    addHeight(7),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
