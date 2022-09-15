@@ -21,14 +21,17 @@ class SalonServiceTileWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-                child: SizedBox(
-                    child: FittedBox(
-                        child: SvgPicture.asset(
-              item.image,
-              color: isSelected
-                  ? AppColors.whiteColor
-                  : AppColors.activeButtonColor,
-            )))),
+              child: SizedBox(
+                child: FittedBox(
+                  child: SvgPicture.asset(
+                    item.image,
+                    color: isSelected
+                        ? AppColors.whiteColor
+                        : AppColors.activeButtonColor,
+                  ),
+                ),
+              ),
+            ),
             Container(
               height: 48,
               padding: const EdgeInsets.only(top: 15),

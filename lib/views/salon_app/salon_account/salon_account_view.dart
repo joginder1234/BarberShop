@@ -4,6 +4,7 @@ import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/account/FAQs/customer_faq.dart';
 import 'package:barbershop/views/customer_app/account/customer_account.dart';
 import 'package:barbershop/views/customer_app/account/help_support/customer_help.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_offer/salon_offer.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_profile/salon_profile.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_qr_code.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_waitinglist.dart';
@@ -19,7 +20,7 @@ class SalonAccountView extends StatefulWidget {
 class _SalonAccountViewState extends State<SalonAccountView> {
   final List<AccountBtnClass> _btn = [
     AccountBtnClass("Profile", "profile"),
-    AccountBtnClass("Salon Offers", ''),
+    AccountBtnClass("Salon Offers", 'salonOffer'),
     AccountBtnClass("Reviews and Ratings", ''),
     AccountBtnClass("My Waiting List", 'waitinglist'),
     AccountBtnClass("Manage Calendar", ''),
@@ -69,8 +70,8 @@ class _SalonAccountViewState extends State<SalonAccountView> {
     switch (route) {
       case "profile":
         return pushTo(context, const SalonAppProfile());
-      // case "salonoffer":
-      //   return pushTo(context, const SalonAccountView());
+      case "salonOffer":
+        return pushTo(context, const SalonOfferAppView());
       // case "review":
       //   return pushTo(context, const SalonAccountView());
       case "waitinglist":

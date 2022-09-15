@@ -26,6 +26,8 @@ class OutlinedAppIcons {
   static const String shareIcon = "assets/outline_icons/Share.svg";
   static const String cameraIcon = "assets/outline_icons/Camera.svg";
   static const String editIcon = "assets/outline_icons/Edit.svg";
+  static const String calendarIcon = "assets/outline_icons/Calendar.svg";
+  static const String downArrow = "assets/outline_icons/DownArrow.svg";
 }
 
 class SolidAppIcons {}

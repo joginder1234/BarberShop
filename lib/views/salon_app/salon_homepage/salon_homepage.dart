@@ -24,9 +24,9 @@ class _SalonHomePageState extends State<SalonHomePage> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [

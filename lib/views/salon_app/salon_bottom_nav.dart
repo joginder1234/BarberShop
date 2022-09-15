@@ -5,7 +5,7 @@ import 'package:barbershop/views/customer_app/news/customer_news.dart';
 import 'package:barbershop/views/salon_app/salon_bottom_page/salon_chair_view.dart';
 import 'package:barbershop/views/salon_app/salon_homepage/salon_homepage.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_account_view.dart';
-import 'package:barbershop/views/salon_app/salon_bottom_page/salon_service_view.dart';
+import 'package:barbershop/views/salon_app/salon_services/salon_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

@@ -3,11 +3,9 @@ import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
-import 'package:barbershop/views/customer_app/account/profile/customer_edit_profile.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_profile/salon_edit_profile.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/parser.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SalonAppProfile extends StatefulWidget {
@@ -21,105 +19,162 @@ class _SalonAppProfileState extends State<SalonAppProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       appBar: emptyAppBar(title: "Profile", elevation: 0),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 addHeight(20),
-                SizedBox(
-                  width: getWidth(context),
-                  height: 187,
+                Container(
                   child: Stack(
+                    alignment: Alignment.center,
                     children: [
-                      Positioned(
-                        bottom: 0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: AppColors.whiteColor,
-                              boxShadow: [
-                                BoxShadow(
-                                    color:
-                                        AppColors.blackColor.withOpacity(0.15),
-                                    blurRadius: 5)
-                              ]),
-                          child: Container(
-                            padding: const EdgeInsets.all(15),
-                            width: getWidth(context) - 45,
-                            height: 270,
-                            child: Image.network(profile_image),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 50),
+                        child: Stack(
+                          alignment: Alignment.bottomRight,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.network(
+                                    profile_image,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              color: AppColors.blackColor,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  OutlinedAppIcons.cameraIcon,
+                                  color: AppColors.whiteColor,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Positioned(
-                        bottom: -100,
-                        child: SizedBox(
-                          width: getWidth(context) - 45,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              CircleAvatar(
-                                radius: 45,
-                                backgroundColor: AppColors.whiteColor,
-                                backgroundImage: NetworkImage(profile_image),
-                              )
-                            ],
-                          ),
-                        ),
+                        bottom: 0,
+                        child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                  profile_image,
+                                ),
+                              ),
+                              border: Border.all(color: Colors.grey),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Stack(
+                              alignment: Alignment.bottomCenter,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: SvgPicture.asset(
+                                    OutlinedAppIcons.cameraIcon,
+                                    color: AppColors.whiteColor,
+                                  ),
+                                ),
+                              ],
+                            )),
                       ),
                     ],
                   ),
                 ),
+                addHeight(60),
                 Row(
                   children: [
-                    Text(
-                      "Green Scissors Day Salon",
-                      style: TextThemeProvider.heading2
-                          .copyWith(fontWeight: FontWeight.w600),
+                    const Expanded(flex: 1, child: SizedBox()),
+                    Expanded(
+                      flex: 4,
+                      child: SizedBox(
+                        child: Text(
+                          "Green Scissors Day Salon",
+                          style: TextThemeProvider.heading2
+                              .copyWith(fontWeight: FontWeight.w600),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
-                    Image.asset(
-                      OutlinedAppIcons.cameraIcon,
-                      width: 20,
+                    Expanded(
+                      flex: 1,
+                      child: SizedBox(
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: SvgPicture.asset(
+                                OutlinedAppIcons.editIcon,
+                                color: AppColors.blackColor,
+                                width: 24,
+                              ))),
                     ),
                   ],
                 ),
                 addHeight(25),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Opening Time",
-                      style: TextThemeProvider.bodyText
-                          .copyWith(fontWeight: FontWeight.w700),
-                    ),
-                  ],
+                Text(
+                  "Opening Time",
+                  style: TextThemeProvider.bodyText
+                      .copyWith(fontWeight: FontWeight.w700),
                 ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Monday-Friday",
-                          style: TextThemeProvider.bodyTextSmall),
-                      Column(
+                addHeight(8),
+                Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Expanded(
+                    child: SizedBox(
+                      child: Text(
+                        "Monday-Friday",
+                        style: TextThemeProvider.bodyTextSmall
+                            .copyWith(color: AppColors.blackLightColor),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: SizedBox(
+                      child: Column(
                         children: [
                           Text("● 7:30-11:30 AM",
                               style: TextThemeProvider.bodyTextSmall),
                           Text("● 1:30-5:30 PM",
                               style: TextThemeProvider.bodyTextSmall),
                         ],
-                      )
-                    ]),
+                      ),
+                    ),
+                  )
+                ]),
                 addHeight(15),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Saturday-Sunday",
-                          style: TextThemeProvider.bodyTextSmall),
-                      Text("● 7:30-11:30 AM",
-                          style: TextThemeProvider.bodyTextSmall)
-                    ]),
+                Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Expanded(
+                    child: SizedBox(
+                      child: Text("Saturday-Sunday",
+                          style: TextThemeProvider.bodyTextSmall
+                              .copyWith(color: AppColors.blackLightColor)),
+                    ),
+                  ),
+                  Expanded(
+                    child: SizedBox(
+                      child: Column(
+                        children: [
+                          Text("● 7:30-11:30 AM",
+                              style: TextThemeProvider.bodyTextSmall),
+                        ],
+                      ),
+                    ),
+                  )
+                ]),
                 const Padding(
                   padding: EdgeInsets.only(top: 15, bottom: 20),
                   child: Divider(),
@@ -150,7 +205,11 @@ class _SalonAppProfileState extends State<SalonAppProfile> {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20),
-        child: ExpandedButtonView(title: "Edit Profile", ontap: () {}),
+        child: ExpandedButtonView(
+            title: "Edit Profile",
+            ontap: () {
+              pushTo(context, const SalonAppEditProfileview());
+            }),
       ),
     );
   }
