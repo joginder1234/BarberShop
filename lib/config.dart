@@ -1,4 +1,5 @@
 import 'package:barbershop/services/models/user_model.dart';
+import 'package:barbershop/services/stylesheet/image_provider.dart';
 
 const String appName = "BarberShop Waitroll";
 const String appLogo = "assets/images/logo.png";
@@ -18,4 +19,13 @@ List<UserModel> testUsers = [
       "customer@gmail.com", "9991111111", 'customer', "password", "123456"),
   UserModel("salon@gmail.com", "9992222222", 'salon', "password", "123456"),
   UserModel("barber@gmail.com", "9993333333", 'barber', "password", "123456"),
+];
+
+List<String> salonImages = [
+  AppImageProvider.salon1,
+  AppImageProvider.salon2,
+  AppImageProvider.salon3,
+  AppImageProvider.salon4,
+  AppImageProvider.salon5,
+  AppImageProvider.salon6,
 ];
