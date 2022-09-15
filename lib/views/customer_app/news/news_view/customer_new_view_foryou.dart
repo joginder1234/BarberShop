@@ -3,7 +3,6 @@ import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/widgets/horizontal_news_tile.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../widgets/news_highlight_card.dart';
 
 class CustomerNewsViewForYou extends StatelessWidget {

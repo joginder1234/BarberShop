@@ -68,10 +68,19 @@ class CustomerAppSalonTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                CustomActionButton(label: "Join Queue")
+                TextButton(
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all(
+                            AppColors.activeButtonColor)),
+                    onPressed: () {},
+                    child: Text("Join Queue",
+                        style: TextThemeProvider.bodyTextSecondary
+                            .copyWith(color: AppColors.whiteColor)))
               ],
             ),
-          )
+          ),
         ],
       ),
     );
