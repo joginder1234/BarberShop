@@ -139,7 +139,7 @@ class _AuthenticationViewState extends State<AuthenticationView> {
         if (user[0].password == _passController.text.trim()) {
           getRoute(user[0].role);
         } else {
-          showToast("Wront Password");
+          showToast("Wrong Password");
         }
       }
     } else {

@@ -1,4 +1,8 @@
+import 'package:barbershop/backend/app_data_handler.dart';
+import 'package:barbershop/config.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
+import 'package:barbershop/services/helpers/toast.dart';
+import 'package:barbershop/services/models/user_model.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
@@ -6,6 +10,7 @@ import 'package:barbershop/views/customer_app/news/news_view/customer_new_view_f
 import 'package:barbershop/views/customer_app/news/news_view/customer_new_view_tutorial.dart';
 import 'package:barbershop/views/customer_app/news/news_view/customer_news_view_hairtips.dart';
 import 'package:barbershop/views/customer_app/news/news_view/customer_news_view_tranding.dart';
+import 'package:barbershop/views/customer_app/news/salon_upload_content.dart';
 import 'package:barbershop/views/customer_app/news/upload_content_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -74,12 +79,17 @@ class _CustomerAppNewsViewState extends State<CustomerAppNewsView>
                             flex: 1,
                             child: SizedBox(
                               child: IconButton(
-                                  onPressed: () => pushTo(context,
-                                      const CustomerAppUploadNewContent()),
-                                  icon: SvgPicture.asset(
-                                    OutlinedAppIcons.uploadIcon,
-                                    color: AppColors.activeButtonColor,
-                                  )),
+                                onPressed: () {
+                                  AppDataProvider().getSelectedrole();
+
+                                  // pushTo(context,
+                                  //     const CustomerAppUploadNewContent());
+                                },
+                                icon: SvgPicture.asset(
+                                  OutlinedAppIcons.uploadIcon,
+                                  color: AppColors.activeButtonColor,
+                                ),
+                              ),
                             ))
                       ],
                     ),
@@ -105,5 +115,18 @@ class _CustomerAppNewsViewState extends State<CustomerAppNewsView>
                     )
                   ],
                 ))));
+  }
+
+  getRoute(String role) {
+    switch (role) {
+      case "customer":
+        return pushTo(context, const CustomerAppUploadNewContent());
+      case "salon":
+        return pushTo(context, const SalonAppUploadNewContent());
+      case "barber":
+        return showToast("Comming Soon");
+      default:
+        return null;
+    }
   }
 }

@@ -31,7 +31,7 @@ class SalonQrCode extends StatelessWidget {
             ),
             addHeight(10),
             Text("ID: $queueId", style: TextThemeProvider.bodyTextSmall),
-            addHeight(30),
+            Spacer(),
             TextButton(onPressed: () {}, child: const Text("Create QR Code")),
             ExpandedButtonView(title: "Download", ontap: () {}),
           ],

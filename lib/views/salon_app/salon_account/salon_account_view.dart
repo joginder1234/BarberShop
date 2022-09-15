@@ -3,6 +3,8 @@ import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/account/FAQs/customer_faq.dart';
 import 'package:barbershop/views/customer_app/account/customer_account.dart';
+import 'package:barbershop/views/customer_app/account/help_support/customer_help.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_profile/salon_profile.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_qr_code.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_waitinglist.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +19,10 @@ class SalonAccountView extends StatefulWidget {
 class _SalonAccountViewState extends State<SalonAccountView> {
   final List<AccountBtnClass> _btn = [
     AccountBtnClass("Profile", "profile"),
-    AccountBtnClass("Salon Offers", 'salonoffer'),
-    AccountBtnClass("Reviews and Ratings", 'review'),
+    AccountBtnClass("Salon Offers", ''),
+    AccountBtnClass("Reviews and Ratings", ''),
     AccountBtnClass("My Waiting List", 'waitinglist'),
-    AccountBtnClass("Manage Calendar", 'managecalendar'),
+    AccountBtnClass("Manage Calendar", ''),
     AccountBtnClass("Qr Code", 'qrcode'),
     AccountBtnClass("FAQ's", 'faq'),
     AccountBtnClass("Help & Support", 'help'),
@@ -66,25 +68,25 @@ class _SalonAccountViewState extends State<SalonAccountView> {
   getnavigation(String route) {
     switch (route) {
       case "profile":
-        return pushTo(context, const SalonAccountView());
-      case "salonoffer":
-        return pushTo(context, const SalonAccountView());
-      case "review":
-        return pushTo(context, const SalonAccountView());
+        return pushTo(context, const SalonAppProfile());
+      // case "salonoffer":
+      //   return pushTo(context, const SalonAccountView());
+      // case "review":
+      //   return pushTo(context, const SalonAccountView());
       case "waitinglist":
         return pushTo(context, const SalonWaitingList());
-      case "managecalendar":
-        return pushTo(context, const SalonAccountView());
+      // case "managecalendar":
+      //   return pushTo(context, const SalonAccountView());
       case "qrcode":
         return pushTo(context, const SalonQrCode());
       case "faq":
         return pushTo(context, const CustomerFAQsView());
       case "help":
-        return pushTo(context, const SalonAccountView());
-      case "termcondition":
-        return pushTo(context, const SalonAccountView());
-      case "privacypolicy":
-        return pushTo(context, const SalonAccountView());
+        return pushTo(context, const CustomerHelpAndSupportView());
+      // case "termcondition":
+      //   return pushTo(context, const SalonAccountView());
+      // case "privacypolicy":
+      //   return pushTo(context, const SalonAccountView());
       default:
         return null;
     }

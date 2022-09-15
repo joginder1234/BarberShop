@@ -41,9 +41,7 @@ class _SalonNotificationState extends State<SalonNotification>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      appBar: emptyAppBar(
-        title: "Notifications",
-      ),
+      appBar: emptyAppBar(title: "Notifications", elevation: 0),
       body: Column(
         children: [
           TabBar(

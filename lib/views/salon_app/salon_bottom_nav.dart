@@ -1,14 +1,12 @@
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/views/customer_app/bottom_nav_bar.dart';
+import 'package:barbershop/views/customer_app/news/customer_news.dart';
 import 'package:barbershop/views/salon_app/salon_bottom_page/salon_chair_view.dart';
 import 'package:barbershop/views/salon_app/salon_homepage/salon_homepage.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_account_view.dart';
-import 'package:barbershop/views/salon_app/salon_bottom_page/salon_news_view.dart';
 import 'package:barbershop/views/salon_app/salon_bottom_page/salon_service_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SalonBottomNavView extends StatefulWidget {
@@ -23,7 +21,7 @@ class _SalonBottomNavViewState extends State<SalonBottomNavView> {
     const SalonHomePage(),
     const SalonAppServiceView(),
     const SalonAppChairView(),
-    const SalonAppNewsView(),
+    const CustomerAppNewsView(),
     const SalonAccountView(),
   ];
 

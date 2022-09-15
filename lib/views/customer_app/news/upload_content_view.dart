@@ -4,6 +4,7 @@ import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/auth/registration/salon_side/image_selection.dart';
+import 'package:barbershop/views/customer_app/news/salon_upload_content.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:barbershop/widgets/custom_dropdown.dart';
 import 'package:barbershop/widgets/textfield.dart';

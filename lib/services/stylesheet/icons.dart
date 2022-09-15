@@ -24,6 +24,8 @@ class OutlinedAppIcons {
   static const String timeCircle = "assets/outline_icons/Time_Circle.svg";
   static const String downloadIcon = "assets/outline_icons/Downlaod.svg";
   static const String shareIcon = "assets/outline_icons/Share.svg";
+  static const String cameraIcon = "assets/outline_icons/Camera.svg";
+  static const String editIcon = "assets/outline_icons/Edit.svg";
 }
 
 class SolidAppIcons {}

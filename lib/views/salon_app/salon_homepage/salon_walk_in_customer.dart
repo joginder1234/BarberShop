@@ -18,7 +18,7 @@ class _SalonWalkInCustomerState extends State<SalonWalkInCustomer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      appBar: emptyAppBar(title: "Walk-In customers"),
+      appBar: emptyAppBar(title: "Walk-In customers", elevation: 0),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
