@@ -21,16 +21,25 @@ class _CustomerAppQRCodeScannerState extends State<CustomerAppQRCodeScanner> {
   void reassemble() {
     super.reassemble();
     if (Platform.isAndroid) {
-      controller!.resumeCamera();
+      controller!.pauseCamera();
     } else if (Platform.isIOS) {
       controller!.resumeCamera();
     }
   }
 
   void _onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
+    debugPrint("Process started");
+    setState(() => this.controller = controller);
     controller.scannedDataStream.listen((scanData) {
-      debugPrint("QR Code Data :: ${scanData.code}");
+      scanData != null
+          ? showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title: const Text("QR Code Data"),
+                    content: Text(
+                        'Barcode Type: ${result!.format.name}   Data: ${result!.code}'),
+                  ))
+          : null;
       setState(() {
         result = scanData;
       });
@@ -45,7 +54,7 @@ class _CustomerAppQRCodeScannerState extends State<CustomerAppQRCodeScanner> {
               overlay: QrScannerOverlayShape(
                   borderRadius: 15, borderColor: AppColors.activeButtonColor),
               key: qrKey,
-              onQRViewCreated: (v) => _onQRViewCreated(v))),
+              onQRViewCreated: _onQRViewCreated)),
     );
   }
 

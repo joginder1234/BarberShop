@@ -32,4 +32,16 @@ class AppDataProvider extends ChangeNotifier {
         return "";
     }
   }
+
+  String _selectedService = '';
+  String get getSelectedService => _selectedService;
+  selectService(String service) {
+    _selectedService = service;
+    notifyListeners();
+  }
+
+  resetService() {
+    _selectedService = "";
+    notifyListeners();
+  }
 }
