@@ -27,7 +27,6 @@ class _CustomerProfileViewState extends State<CustomerProfileView> {
             addHeight(20),
             SizedBox(
               width: getWidth(context),
-              height: 315,
               child: Stack(
                 children: [
                   Positioned(
@@ -53,39 +52,36 @@ class _CustomerProfileViewState extends State<CustomerProfileView> {
                           ],
                         ),
                       )),
-                  Positioned(
-                    bottom: 0,
+                  Container(
+                    margin: const EdgeInsets.only(top: 45),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: AppColors.whiteColor,
+                        boxShadow: [
+                          BoxShadow(
+                              color: AppColors.blackColor.withOpacity(0.15),
+                              blurRadius: 5)
+                        ]),
                     child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: AppColors.whiteColor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: AppColors.blackColor.withOpacity(0.15),
-                                blurRadius: 5)
-                          ]),
-                      child: Container(
-                        padding: const EdgeInsets.all(15),
-                        width: getWidth(context) - 45,
-                        height: 270,
-                        child: Column(
-                          children: [
-                            addHeight(45),
-                            Center(
-                              child: Text("Jhon Doe",
-                                  style: TextThemeProvider.heading3
-                                      .copyWith(fontWeight: FontWeight.w700)),
-                            ),
-                            addHeight(15),
-                            detail_tile("Mobile", "999XXXX999"),
-                            addHeight(15),
-                            detail_tile("Email", "Example@email.com"),
-                            addHeight(15),
-                            detail_tile("Address", "Kern County, CA"),
-                            addHeight(15),
-                            detail_tile("Gender", "Male"),
-                          ],
-                        ),
+                      padding: const EdgeInsets.all(15),
+                      width: getWidth(context) - 45,
+                      child: Column(
+                        children: [
+                          addHeight(45),
+                          Center(
+                            child: Text("Jhon Doe",
+                                style: TextThemeProvider.heading3
+                                    .copyWith(fontWeight: FontWeight.w700)),
+                          ),
+                          addHeight(15),
+                          detail_tile("Mobile", "999XXXX999"),
+                          addHeight(15),
+                          detail_tile("Email", "Example@email.com"),
+                          addHeight(15),
+                          detail_tile("Address", "Kern County, CA"),
+                          addHeight(15),
+                          detail_tile("Gender", "Male"),
+                        ],
                       ),
                     ),
                   ),

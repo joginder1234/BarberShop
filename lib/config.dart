@@ -10,6 +10,9 @@ const String salon_image =
 const String profile_image =
     "https://docs.microsoft.com/en-us/answers/storage/attachments/209536-360-f-364211147-1qglvxv1tcq0ohz3fawufrtonzz8nq3e.jpg";
 
+const salonDescription =
+    "Viverra eleifend imperdiet vitae turpis senectus tincidunt. Ultrices porttitor nunc lorem lacinia massa sapien tincidunt duis risus. Pellentesque dolor, ultrices lectus at neque amet sed sed. Egestas tincidunt sed lacus consectetur interdum integer. Pellentesque amet sed facilisis non. Rhoncus ullamcorper mi, vitae amet, lacus sit maecenas facilisis. Nec ac sit ut donec suspendisse convallis sit.";
+
 List<UserModel> testUsers = [
   UserModel(
       "customer@gmail.com", "9991111111", 'customer', "password", "123456"),
