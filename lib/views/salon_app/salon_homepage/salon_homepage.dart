@@ -3,7 +3,7 @@ import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
-import 'package:barbershop/views/customer_app/customer_home.dart';
+import 'package:barbershop/views/customer_app/home/customer_home.dart';
 import 'package:barbershop/views/salon_app/salon_notification_view/salon_notification.dart';
 import 'package:barbershop/widgets/home_salon_tile.dart';
 import 'package:barbershop/views/salon_app/salon_homepage/salon_walk_in_customer.dart';
@@ -51,7 +51,7 @@ class _SalonHomePageState extends State<SalonHomePage> {
                       ),
                       IconButton(
                         onPressed: () {
-                          pushTo(context, SalonNotification());
+                          pushTo(context, const SalonNotification());
                         },
                         icon: SvgPicture.asset(
                           OutlinedAppIcons.notificationIcon,

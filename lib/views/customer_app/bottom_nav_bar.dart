@@ -1,7 +1,7 @@
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/views/customer_app/account/customer_account.dart';
-import 'package:barbershop/views/customer_app/customer_home.dart';
+import 'package:barbershop/views/customer_app/home/customer_home.dart';
 import 'package:barbershop/views/customer_app/news/customer_news.dart';
 import 'package:barbershop/views/customer_app/customer_search.dart';
 import 'package:flutter/material.dart';

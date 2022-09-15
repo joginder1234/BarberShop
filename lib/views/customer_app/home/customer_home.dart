@@ -6,6 +6,7 @@ import 'package:barbershop/services/stylesheet/image_provider.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/helper_widgets/offer_tile.dart';
 import 'package:barbershop/views/customer_app/helper_widgets/salon_tile.dart';
+import 'package:barbershop/views/customer_app/home/qrcode_scanner.dart';
 import 'package:barbershop/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -64,7 +65,8 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () =>
+                            pushTo(context, const CustomerAppQRCodeScanner()),
                         icon: Image.asset(
                           AppImageProvider.qrCodeIcon,
                           height: 20,

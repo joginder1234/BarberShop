@@ -1,8 +1,7 @@
-import 'package:barbershop/onboarding.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
-import 'package:barbershop/views/customer_app/customer_home.dart';
+import 'package:barbershop/views/customer_app/home/customer_home.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 
