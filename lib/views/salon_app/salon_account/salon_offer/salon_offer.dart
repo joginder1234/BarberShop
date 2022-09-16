@@ -5,7 +5,6 @@ import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_offer/salon_add_new_offer.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_offer/salon_edit_offer.dart';
-import 'package:barbershop/views/salon_app/salon_account/salon_profile/salon_edit_profile.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

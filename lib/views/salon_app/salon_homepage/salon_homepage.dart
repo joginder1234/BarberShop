@@ -4,7 +4,7 @@ import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/home/customer_home.dart';
-import 'package:barbershop/views/salon_app/salon_notification_view/salon_notification.dart';
+import 'package:barbershop/views/salon_app/salon_homepage/salon_notification_view/salon_notification.dart';
 import 'package:barbershop/widgets/home_salon_tile.dart';
 import 'package:barbershop/views/salon_app/salon_homepage/salon_walk_in_customer.dart';
 import 'package:barbershop/widgets/button_theme.dart';
@@ -100,7 +100,7 @@ class _SalonHomePageState extends State<SalonHomePage> {
                 addHeight(20),
                 AddPageSection(
                   title: "Waiting List (Today)",
-                  btnTitle: "view history",
+                  btnTitle: "View history",
                   ontap: () {},
                 ),
                 Row(
@@ -114,15 +114,16 @@ class _SalonHomePageState extends State<SalonHomePage> {
                 Column(
                   children: [
                     ...List.generate(
-                        5,
-                        (i) => HomeSalonTile(
-                            distance: "2Km",
-                            title: "Jhone Doe",
-                            subtitle: "2:00PM, Barber Name",
-                            status: "Confirmed",
-                            rating: "4.6",
-                            button: "Skip",
-                            onTap: () {})),
+                      5,
+                      (i) => HomeSalonTile(
+                          distance: "2Km",
+                          title: "Jhone Doe",
+                          subtitle: "2:00PM, Barber Name",
+                          status: "Confirmed",
+                          rating: "4.6",
+                          button: "Skip",
+                          onTap: () {}),
+                    ),
                     textButton(onTap: () {}, text: "view"),
                     ExpandedButtonView(title: "Call Next", ontap: () {}),
                     Padding(

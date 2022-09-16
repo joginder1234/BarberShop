@@ -42,38 +42,45 @@ class _CustomerAppSelectServiceViewState
       backgroundColor: AppColors.whiteColor,
       appBar: emptyAppBar(title: "Select Service", elevation: 0),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Text(
-                "Our Salon is offering the following services you can select only one at a time to join queue",
-                textAlign: TextAlign.center,
-                style: TextThemeProvider.bodyTextSmall),
-            addHeight(30),
-            GridView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: categoryList.length,
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: isSmallScreen ? 2 : 3,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 1),
-                itemBuilder: (context, i) {
-                  final item = categoryList[i];
-                  return InkWell(
-                    onTap: () {
-                      setState(() => selectedService = item.title);
-                      database.selectService(item.title);
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Text(
+                  "Our Salon is offering the following services you can select only one at a time to join queue",
+                  textAlign: TextAlign.center,
+                  style: TextThemeProvider.bodyTextSmall),
+              addHeight(30),
+              Expanded(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: categoryList.length,
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isSmallScreen ? 2 : 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 1),
+                    itemBuilder: (context, i) {
+                      final item = categoryList[i];
+                      return InkWell(
+                        onTap: () {
+                          setState(() => selectedService = item.title);
+                          database.selectService(item.title);
+                        },
+                        child: SalonServiceTileWidget(
+                            isSelected: isSelected(item.title), item: item),
+                      );
                     },
-                    child: SalonServiceTileWidget(
-                        isSelected: isSelected(item.title), item: item),
-                  );
-                }),
-          ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20),
         child: ExpandedButtonView(

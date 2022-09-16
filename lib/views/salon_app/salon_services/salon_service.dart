@@ -24,60 +24,64 @@ class _SalonAppServiceViewState extends State<SalonAppServiceView> {
     final isSmallScreen = getWidth(context) < 380;
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          Center(
-            child: Text("Services", style: TextThemeProvider.heading1),
-          ),
-          Center(
-            child: Text(
-              "Tap on any service to remove or edit",
-              style: TextThemeProvider.bodyTextSmall,
-              textAlign: TextAlign.center,
+        child: Column(
+          children: [
+            Center(
+              child: Text("Services", style: TextThemeProvider.heading1),
             ),
-          ),
-          addHeight(10),
-          Expanded(
-            child: SizedBox(
-              child: GridView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 18),
-                  itemCount: categoryList.length > 7 ? 8 : categoryList.length,
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: isSmallScreen ? 2 : 3,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 1),
-                  itemBuilder: (context, i) {
-                    final item = categoryList[i];
-                    return i == 7
-                        ? InkWell(
-                            onTap: () => pushTo(
-                                context, const CustomerAppSelectServiceView()),
-                            child: Card(
-                              child: Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Center(
-                                  child: Text(
-                                    "View more",
-                                    style: TextThemeProvider.bodyTextSecondary
-                                        .copyWith(
-                                            color: AppColors.activeButtonColor),
+            Center(
+              child: Text(
+                "Tap on any service to remove or edit",
+                style: TextThemeProvider.bodyTextSmall,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            addHeight(10),
+            Expanded(
+              child: SizedBox(
+                child: GridView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    itemCount:
+                        categoryList.length > 7 ? 8 : categoryList.length,
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isSmallScreen ? 2 : 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 1),
+                    itemBuilder: (context, i) {
+                      final item = categoryList[i];
+                      return i == 7
+                          ? InkWell(
+                              onTap: () => pushTo(context,
+                                  const CustomerAppSelectServiceView()),
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Center(
+                                    child: Text(
+                                      "View more",
+                                      style: TextThemeProvider.bodyTextSecondary
+                                          .copyWith(
+                                              color:
+                                                  AppColors.activeButtonColor),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                        : InkWell(
-                            onTap: () => database.selectService(item.title),
-                            child: SalonServiceTileWidget(
-                                isSelected: isSelected(item.title), item: item),
-                          );
-                  }),
+                            )
+                          : InkWell(
+                              onTap: () => database.selectService(item.title),
+                              child: SalonServiceTileWidget(
+                                  isSelected: isSelected(item.title),
+                                  item: item),
+                            );
+                    }),
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20),
         child: ExpandedButtonView(title: "Add New Service", ontap: () {}),

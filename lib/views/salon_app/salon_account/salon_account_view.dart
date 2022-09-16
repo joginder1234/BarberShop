@@ -4,10 +4,12 @@ import 'package:barbershop/services/stylesheet/text_theme.dart';
 import 'package:barbershop/views/customer_app/account/FAQs/customer_faq.dart';
 import 'package:barbershop/views/customer_app/account/customer_account.dart';
 import 'package:barbershop/views/customer_app/account/help_support/customer_help.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_calendar/salon_calendar.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_offer/salon_offer.dart';
 import 'package:barbershop/views/salon_app/salon_account/salon_profile/salon_profile.dart';
-import 'package:barbershop/views/salon_app/salon_account/salon_qr_code.dart';
-import 'package:barbershop/views/salon_app/salon_account/salon_waitinglist.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_qrcode/salon_qr_code.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_reviews_ratings/salon_reviews_and_ratings.dart';
+import 'package:barbershop/views/salon_app/salon_account/salon_waitinglist/salon_waitinglist.dart';
 import 'package:flutter/material.dart';
 
 class SalonAccountView extends StatefulWidget {
@@ -21,9 +23,9 @@ class _SalonAccountViewState extends State<SalonAccountView> {
   final List<AccountBtnClass> _btn = [
     AccountBtnClass("Profile", "profile"),
     AccountBtnClass("Salon Offers", 'salonOffer'),
-    AccountBtnClass("Reviews and Ratings", ''),
+    AccountBtnClass("Reviews and Ratings", 'reviews'),
     AccountBtnClass("My Waiting List", 'waitinglist'),
-    AccountBtnClass("Manage Calendar", ''),
+    AccountBtnClass("Manage Calendar", 'managecalendar'),
     AccountBtnClass("Qr Code", 'qrcode'),
     AccountBtnClass("FAQ's", 'faq'),
     AccountBtnClass("Help & Support", 'help'),
@@ -72,12 +74,12 @@ class _SalonAccountViewState extends State<SalonAccountView> {
         return pushTo(context, const SalonAppProfile());
       case "salonOffer":
         return pushTo(context, const SalonOfferAppView());
-      // case "review":
-      //   return pushTo(context, const SalonAccountView());
+      case "reviews":
+        return pushTo(context, const SalonReviewsAndRatings());
       case "waitinglist":
         return pushTo(context, const SalonWaitingList());
-      // case "managecalendar":
-      //   return pushTo(context, const SalonAccountView());
+      case "managecalendar":
+        return pushTo(context, const SalonAppCalendarView());
       case "qrcode":
         return pushTo(context, const SalonQrCode());
       case "faq":
