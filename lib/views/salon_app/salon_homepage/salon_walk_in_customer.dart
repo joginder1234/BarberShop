@@ -50,6 +50,7 @@ class _SalonWalkInCustomerState extends State<SalonWalkInCustomer> {
                     itemCount: 7,
                     itemBuilder: (context, index) {
                       return HomeSalonTile(
+                          serialNumber: index + 1,
                           title: "Jhone Doe",
                           subtitle: "2:00PM, Barber Name",
                           status: "Confirmed",

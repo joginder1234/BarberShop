@@ -1,45 +1,35 @@
 import 'package:barbershop/backend/app_data_handler.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
-import 'package:barbershop/services/models/category_model.dart';
-import 'package:barbershop/services/stylesheet/colors.dart';
-import 'package:barbershop/services/stylesheet/text_theme.dart';
-import 'package:barbershop/views/customer_app/join_queue/select_service.dart';
 import 'package:barbershop/views/customer_app/salon_profile/salon_service_tile.dart';
-import 'package:barbershop/views/salon_app/salon_services/salon_add_new_service.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../services/models/category_model.dart';
+import '../../../services/stylesheet/colors.dart';
+import '../../../services/stylesheet/text_theme.dart';
+import '../../customer_app/join_queue/select_service.dart';
+import 'salon_add_new_service.dart';
 
-import 'salon_service_edit.dart';
-
-class SalonAppServiceView extends StatefulWidget {
-  const SalonAppServiceView({super.key});
+class SalonServiceSelectImage extends StatefulWidget {
+  const SalonServiceSelectImage({super.key});
 
   @override
-  State<SalonAppServiceView> createState() => _SalonAppServiceViewState();
+  State<SalonServiceSelectImage> createState() =>
+      _SalonServiceSelectImageState();
 }
 
-class _SalonAppServiceViewState extends State<SalonAppServiceView> {
+class _SalonServiceSelectImageState extends State<SalonServiceSelectImage> {
   @override
   Widget build(BuildContext context) {
     final database = Provider.of<AppDataProvider>(context);
     bool isSelected(String service) => database.getSelectedService == service;
-    final isSmallScreen = getWidth(context) < 380;
+    final isSmallScreen = getWidth(context) < 360;
     return Scaffold(
+      appBar: emptyAppBar(title: "Select Image", elevation: 0),
       body: SafeArea(
         child: Column(
           children: [
-            Center(
-              child: Text("Services", style: TextThemeProvider.heading1),
-            ),
-            Center(
-              child: Text(
-                "Tap on any service to remove or edit",
-                style: TextThemeProvider.bodyTextSmall,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            addHeight(10),
+            addHeight(20),
             Expanded(
               child: SizedBox(
                 child: GridView.builder(
@@ -54,10 +44,7 @@ class _SalonAppServiceViewState extends State<SalonAppServiceView> {
                   itemBuilder: (context, i) {
                     final item = categoryList[i];
                     return InkWell(
-                      onTap: () {
-                        database.selectService(item.title);
-                        pushTo(context, const SalonServiceEditAppView());
-                      },
+                      onTap: () => database.selectService(item.title),
                       child: SalonServiceTileWidget(
                           isSelected: isSelected(item.title), item: item),
                     );
@@ -71,10 +58,11 @@ class _SalonAppServiceViewState extends State<SalonAppServiceView> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20),
         child: ExpandedButtonView(
-            title: "Add New Service",
-            ontap: () {
-              pushTo(context, const AddNewService());
-            }),
+          title: "Select",
+          ontap: () {
+            pushTo(context, const AddNewService());
+          },
+        ),
       ),
     );
   }

@@ -107,3 +107,14 @@ homeSalonWork(
     ),
   );
 }
+
+customMessageDot({required color}) {
+  return Container(
+    height: 8,
+    width: 8,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      color: color,
+    ),
+  );
+}

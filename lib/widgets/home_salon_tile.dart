@@ -5,16 +5,17 @@ import 'package:barbershop/widgets/custom_action_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeSalonTile extends StatefulWidget {
+  int serialNumber;
   String title;
   String subtitle;
   String? rating;
-
   String status;
   String distance;
   String button;
   Function onTap;
   HomeSalonTile({
     Key? key,
+    this.serialNumber = 1,
     required this.title,
     required this.subtitle,
     this.rating,
@@ -43,14 +44,14 @@ class _HomeSalonTileState extends State<HomeSalonTile> {
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: widget.title,
+                        text: "${widget.serialNumber}. ${widget.title}",
                         style: TextThemeProvider.bodyTextSmall.copyWith(
                             fontWeight: FontWeight.w600,
                             color: AppColors.blackColor),
                         children: [
                           TextSpan(
                             text: "   ${widget.rating}",
-                            style: TextThemeProvider.bodyTextSmall.copyWith(
+                            style: TextThemeProvider.bodyTextSecondary.copyWith(
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.blackColor),
                           ),

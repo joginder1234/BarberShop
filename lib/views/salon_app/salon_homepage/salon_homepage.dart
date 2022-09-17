@@ -104,9 +104,11 @@ class _SalonHomePageState extends State<SalonHomePage> {
                   ontap: () {},
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Text(
                       "Click on the name to rate the client",
+                      style: TextThemeProvider.bodyTextSmall
+                          .copyWith(color: AppColors.blackLightColor),
                     ),
                   ],
                 ),
@@ -116,13 +118,15 @@ class _SalonHomePageState extends State<SalonHomePage> {
                     ...List.generate(
                       5,
                       (i) => HomeSalonTile(
-                          distance: "2Km",
-                          title: "Jhone Doe",
-                          subtitle: "2:00PM, Barber Name",
-                          status: "Confirmed",
-                          rating: "4.6",
-                          button: "Skip",
-                          onTap: () {}),
+                        serialNumber: i + 1,
+                        distance: "2Km",
+                        title: "Jhone Doe",
+                        subtitle: "2:00PM, Barber Name",
+                        status: "Confirmed",
+                        rating: "4.6",
+                        button: "Skip",
+                        onTap: () {},
+                      ),
                     ),
                     textButton(onTap: () {}, text: "view"),
                     ExpandedButtonView(title: "Call Next", ontap: () {}),

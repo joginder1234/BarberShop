@@ -36,32 +36,34 @@ class SalonAppChairView extends StatelessWidget {
                       return Card(
                         margin: const EdgeInsets.only(bottom: 15),
                         child: ListTile(
-                            onTap: () {
-                              pushTo(context, SalonAppEditChairView());
-                            },
-                            leading: Container(
-                              height: 50,
-                              width: 50,
-                              decoration:
-                                  const BoxDecoration(shape: BoxShape.circle),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    profile_image,
-                                    fit: BoxFit.cover,
-                                  )),
+                          onTap: () {
+                            pushTo(context, const SalonAppEditChairView());
+                          },
+                          leading: Container(
+                            height: 50,
+                            width: 50,
+                            decoration:
+                                const BoxDecoration(shape: BoxShape.circle),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.network(
+                                profile_image,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            title: Text(
-                              "CH01",
-                              style: TextThemeProvider.bodyTextSmall
-                                  .copyWith(fontWeight: FontWeight.w600),
-                            ),
-                            subtitle: Text(
-                              "Esther Howard",
-                              style: TextThemeProvider.helperText
-                                  .copyWith(fontWeight: FontWeight.w400),
-                            ),
-                            trailing: const Text("4.0 ⭐")),
+                          ),
+                          title: Text(
+                            "CH01",
+                            style: TextThemeProvider.bodyTextSmall
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                          subtitle: Text(
+                            "Esther Howard",
+                            style: TextThemeProvider.helperText
+                                .copyWith(fontWeight: FontWeight.w400),
+                          ),
+                          trailing: const Text("4.0 ⭐"),
+                        ),
                       );
                     },
                   ),
