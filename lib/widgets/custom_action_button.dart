@@ -19,17 +19,23 @@ class CustomActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        style: ButtonStyle(
-            padding: MaterialStateProperty.all(
-                const EdgeInsets.symmetric(horizontal: 20)),
-            minimumSize: MaterialStateProperty.all(const Size(70, 35)),
-            maximumSize: MaterialStateProperty.all(const Size(110, 35)),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(radius))),
-            backgroundColor: MaterialStateProperty.all(btnColor)),
-        onPressed: () {},
-        child: Text(label,
-            style: TextThemeProvider.bodyTextSecondary
-                .copyWith(color: labelColor)));
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 20)),
+        minimumSize: MaterialStateProperty.all(const Size(70, 35)),
+        maximumSize: MaterialStateProperty.all(const Size(110, 35)),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(radius),
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all(btnColor),
+      ),
+      onPressed: () {},
+      child: Text(
+        label,
+        style: TextThemeProvider.bodyTextSecondary.copyWith(color: labelColor),
+      ),
+    );
   }
 }

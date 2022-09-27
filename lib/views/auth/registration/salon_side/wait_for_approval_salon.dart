@@ -14,31 +14,36 @@ class WaitForSalonApprovalView extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: emptyAppBar(),
       body: SafeArea(
-          child: Center(
-        child: SizedBox(
-          width: getWidth(context) * 0.7,
-          child: FittedBox(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("Please wait for\nAdmin approval.",
-                    style: TextThemeProvider.heading1.copyWith(fontSize: 30)),
-                Text(
-                  "You’ll be notified once approved.",
-                  style: TextThemeProvider.bodyTextSmall,
-                )
-              ],
+        child: Center(
+          child: SizedBox(
+            width: getWidth(context) * 0.7,
+            child: FittedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("Please wait for\nAdmin approval.",
+                      style: TextThemeProvider.heading1.copyWith(fontSize: 30)),
+                  Text(
+                    "You’ll be notified once approved.",
+                    style: TextThemeProvider.bodyTextSmall,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      )),
+      ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         width: getWidth(context),
         child: ExpandedButtonView(
-            title: "Continue",
-            ontap: () => pushToandRemove(context, const OnBoardingView())),
+          title: "Continue",
+          ontap: () => pushToandRemove(
+            context,
+            const OnBoardingView(),
+          ),
+        ),
       ),
     );
   }

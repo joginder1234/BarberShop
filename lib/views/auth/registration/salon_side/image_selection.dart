@@ -31,16 +31,16 @@ class _SalonImageSelectionviewState extends State<SalonImageSelectionview> {
       backgroundColor: AppColors.whiteColor,
       appBar: emptyAppBar(title: db.getRegisterFormHeader()),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Salon Image", style: TextThemeProvider.heading1),
-            Text("You can upload upto $maxImagesOnSalonRegister images",
-                style: TextThemeProvider.bodyTextSmall),
-            addHeight(30),
-            GridView.builder(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Salon Image", style: TextThemeProvider.heading1),
+              Text("You can upload upto $maxImagesOnSalonRegister images",
+                  style: TextThemeProvider.bodyTextSmall),
+              addHeight(30),
+              GridView.builder(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 itemCount: _pickedImages.length + 1,
@@ -58,10 +58,12 @@ class _SalonImageSelectionviewState extends State<SalonImageSelectionview> {
                           File(_pickedImages[i].path),
                           fit: BoxFit.cover,
                         ),
-                      )),
-          ],
+                      ),
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
       bottomNavigationBar: Container(
         width: getWidth(context),
         padding: const EdgeInsets.all(16),

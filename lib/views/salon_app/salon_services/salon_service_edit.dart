@@ -1,9 +1,9 @@
 import 'package:barbershop/services/helpers/help_functions.dart';
+import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/views/salon_app/salon_services/salon_service_select_image.dart';
 import 'package:barbershop/widgets/textfield.dart';
 import 'package:flutter/material.dart';
-
 import '../../../widgets/button_theme.dart';
 
 class SalonServiceEditAppView extends StatelessWidget {
@@ -12,6 +12,7 @@ class SalonServiceEditAppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       appBar: emptyAppBar(title: "Edit Service", elevation: 0),
       body: SafeArea(
         child: Padding(

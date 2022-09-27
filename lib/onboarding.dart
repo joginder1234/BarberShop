@@ -54,17 +54,17 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ),
                 )),
             Expanded(
-                flex: 1,
-                child: Container(
-                  padding: EdgeInsets.all(isSmallScreen(context) ? 15 : 25),
-                  decoration: BoxDecoration(
-                      color: AppColors.primaryColor.withOpacity(0.05),
-                      borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(44))),
-                  child: Column(
-                    children: [
-                      Expanded(
-                          child: SizedBox(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(isSmallScreen(context) ? 15 : 25),
+                decoration: BoxDecoration(
+                    color: AppColors.primaryColor.withOpacity(0.05),
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(44))),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
                         child: Center(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -88,34 +88,36 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             ],
                           ),
                         ),
-                      )),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: SizedBox(
-                              child: ExpandedButtonView(
-                                  title: "Register",
-                                  ontap: () => pushTo(
-                                      context, const ChooseProfileRole())),
-                            ),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            child: ExpandedButtonView(
+                                title: "Register",
+                                ontap: () =>
+                                    pushTo(context, const ChooseProfileRole())),
                           ),
-                          addWidth(8),
-                          Expanded(
-                            child: SizedBox(
-                              child: ExpandedButtonView(
-                                  title: "Sign In",
-                                  titleColor: AppColors.activeButtonColor,
-                                  btnColor: AppColors.activeButtonColor
-                                      .withOpacity(0.1),
-                                  ontap: () => pushTo(
-                                      context, const AuthenticationView())),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ))
+                        ),
+                        addWidth(8),
+                        Expanded(
+                          child: SizedBox(
+                            child: ExpandedButtonView(
+                                title: "Sign In",
+                                titleColor: AppColors.activeButtonColor,
+                                btnColor: AppColors.activeButtonColor
+                                    .withOpacity(0.1),
+                                ontap: () => pushTo(
+                                    context, const AuthenticationView())),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       )),

@@ -1,13 +1,11 @@
 import 'package:barbershop/backend/app_data_handler.dart';
 import 'package:barbershop/services/helpers/help_functions.dart';
+import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:barbershop/views/customer_app/salon_profile/salon_service_tile.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../services/models/category_model.dart';
-import '../../../services/stylesheet/colors.dart';
-import '../../../services/stylesheet/text_theme.dart';
-import '../../customer_app/join_queue/select_service.dart';
 import 'salon_add_new_service.dart';
 
 class SalonServiceSelectImage extends StatefulWidget {
@@ -25,6 +23,7 @@ class _SalonServiceSelectImageState extends State<SalonServiceSelectImage> {
     bool isSelected(String service) => database.getSelectedService == service;
     final isSmallScreen = getWidth(context) < 360;
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       appBar: emptyAppBar(title: "Select Image", elevation: 0),
       body: SafeArea(
         child: Column(

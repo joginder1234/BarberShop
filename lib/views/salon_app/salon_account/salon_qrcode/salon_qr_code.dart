@@ -13,7 +13,7 @@ class SalonQrCode extends StatelessWidget {
     String queueId = "sdjflsjfoidjow291u3021";
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      appBar: emptyAppBar(title: "QR Code"),
+      appBar: emptyAppBar(title: "QR Code", elevation: 0),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(

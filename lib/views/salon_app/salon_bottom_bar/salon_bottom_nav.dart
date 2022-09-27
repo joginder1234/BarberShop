@@ -8,7 +8,7 @@ import 'package:barbershop/views/salon_app/salon_services/salon_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'salon_chair/salon_app_chair_view.dart';
+import '../salon_chair/salon_app_chair_view.dart';
 
 class SalonBottomNavView extends StatefulWidget {
   const SalonBottomNavView({super.key});

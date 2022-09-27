@@ -8,7 +8,7 @@ import 'package:barbershop/views/auth/forgot_password/forgot_password.dart';
 import 'package:barbershop/views/auth/phone_auth/otp_view.dart';
 import 'package:barbershop/views/auth/registration/choose_role.dart';
 import 'package:barbershop/views/customer_app/bottom_nav_bar.dart';
-import 'package:barbershop/views/salon_app/salon_bottom_nav.dart';
+import 'package:barbershop/views/salon_app/salon_bottom_bar/salon_bottom_nav.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:barbershop/widgets/textfield.dart';
 import 'package:flutter/material.dart';

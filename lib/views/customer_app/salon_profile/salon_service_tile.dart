@@ -45,7 +45,7 @@ class SalonServiceTileWidget extends StatelessWidget {
                             ? AppColors.whiteColor
                             : AppColors.blackColor)),
               ),
-            )
+            ),
           ],
         ),
       ),

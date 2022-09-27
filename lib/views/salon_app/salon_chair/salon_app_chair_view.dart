@@ -6,9 +6,15 @@ import 'package:barbershop/views/salon_app/salon_chair/salon_edit_chair_view.dar
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:flutter/material.dart';
 
-class SalonAppChairView extends StatelessWidget {
+class SalonAppChairView extends StatefulWidget {
   const SalonAppChairView({super.key});
 
+  @override
+  State<SalonAppChairView> createState() => _SalonAppChairViewState();
+}
+
+class _SalonAppChairViewState extends State<SalonAppChairView> {
+  bool isSwitch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +68,13 @@ class SalonAppChairView extends StatelessWidget {
                             style: TextThemeProvider.helperText
                                 .copyWith(fontWeight: FontWeight.w400),
                           ),
-                          trailing: const Text("4.0 ⭐"),
+                          trailing: Switch.adaptive(
+                            value: isSwitch,
+                            onChanged: (val) {
+                              setState(() {});
+                              isSwitch = !isSwitch;
+                            },
+                          ),
                         ),
                       );
                     },

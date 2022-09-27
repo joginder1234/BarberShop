@@ -14,6 +14,7 @@ import 'package:barbershop/views/customer_app/news/salon_upload_content.dart';
 import 'package:barbershop/views/customer_app/news/upload_content_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class CustomerAppNewsView extends StatefulWidget {
   const CustomerAppNewsView({Key? key}) : super(key: key);
@@ -57,72 +58,76 @@ class _CustomerAppNewsViewState extends State<CustomerAppNewsView>
 
   @override
   Widget build(BuildContext context) {
+    final db = Provider.of<AppDataProvider>(context);
+    print(
+        "${db.getSelectedService} + ${db.getSelectedrole} + ${db.getUserRole()}");
     return Scaffold(
-        backgroundColor: AppColors.whiteColor,
-        body: SafeArea(
-            child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        const Expanded(flex: 1, child: SizedBox()),
-                        Expanded(
-                            flex: 4,
-                            child: SizedBox(
-                              child: Center(
-                                child: Text("Community News",
-                                    style: TextThemeProvider.heading1),
-                              ),
-                            )),
-                        Expanded(
-                            flex: 1,
-                            child: SizedBox(
-                              child: IconButton(
-                                onPressed: () {
-                                  AppDataProvider().getSelectedrole();
-
-                                  // pushTo(context,
-                                  //     const CustomerAppUploadNewContent());
-                                },
-                                icon: SvgPicture.asset(
-                                  OutlinedAppIcons.uploadIcon,
-                                  color: AppColors.activeButtonColor,
-                                ),
-                              ),
-                            ))
-                      ],
-                    ),
-                    TabBar(
-                        labelStyle: TextThemeProvider.bodyTextSmall
-                            .copyWith(fontWeight: FontWeight.w700),
-                        unselectedLabelStyle: TextThemeProvider.bodyTextSmall,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        indicatorColor: AppColors.primaryColor,
-                        labelColor: AppColors.primaryColor,
-                        unselectedLabelColor:
-                            AppColors.blackColor.withOpacity(0.3),
-                        controller: _tabController,
-                        tabs: _tabList),
-                    const Divider(),
-                    Expanded(
-                      child: SizedBox(
-                        child: TabBarView(
-                            physics: const BouncingScrollPhysics(),
-                            controller: _tabController,
-                            children: _tabViewList),
+      backgroundColor: AppColors.whiteColor,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 4,
+                    child: SizedBox(
+                      child: Center(
+                        child: Text("Community News",
+                            style: TextThemeProvider.heading1),
                       ),
-                    )
-                  ],
-                ))));
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      child: IconButton(
+                        onPressed: () {
+                          getRoute(db.getSelectedrole);
+                        },
+                        icon: SvgPicture.asset(
+                          OutlinedAppIcons.uploadIcon,
+                          color: AppColors.activeButtonColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              TabBar(
+                  labelStyle: TextThemeProvider.bodyTextSmall
+                      .copyWith(fontWeight: FontWeight.w700),
+                  unselectedLabelStyle: TextThemeProvider.bodyTextSmall,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorColor: AppColors.primaryColor,
+                  labelColor: AppColors.primaryColor,
+                  unselectedLabelColor: AppColors.blackColor.withOpacity(0.3),
+                  controller: _tabController,
+                  tabs: _tabList),
+              const Divider(),
+              Expanded(
+                child: SizedBox(
+                  child: TabBarView(
+                      physics: const BouncingScrollPhysics(),
+                      controller: _tabController,
+                      children: _tabViewList),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   getRoute(String role) {
     switch (role) {
-      case "customer":
-        return pushTo(context, const CustomerAppUploadNewContent());
       case "salon":
         return pushTo(context, const SalonAppUploadNewContent());
+      case "customer":
+        return pushTo(context, const CustomerAppUploadNewContent());
       case "barber":
         return showToast("Comming Soon");
       default:

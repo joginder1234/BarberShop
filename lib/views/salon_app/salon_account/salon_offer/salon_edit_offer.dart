@@ -47,6 +47,7 @@ class _SalonEditOfferAppViewState extends State<SalonEditOfferAppView> {
                       label: "Title*",
                     ),
                     CustomTextFieldView(
+                      maxlines: 5,
                       hint: "Only for Boys",
                       label: "Description*",
                     ),
@@ -73,7 +74,7 @@ class _SalonEditOfferAppViewState extends State<SalonEditOfferAppView> {
                       label: "Terms",
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

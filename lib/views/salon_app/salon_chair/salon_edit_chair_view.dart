@@ -4,8 +4,6 @@ import 'package:barbershop/services/stylesheet/icons.dart';
 import 'package:barbershop/widgets/button_theme.dart';
 import 'package:barbershop/widgets/textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SalonAppEditChairView extends StatelessWidget {
   const SalonAppEditChairView({super.key});

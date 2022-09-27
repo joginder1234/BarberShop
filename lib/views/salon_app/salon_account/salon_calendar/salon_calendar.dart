@@ -120,23 +120,26 @@ class _SalonAppCalendarViewState extends State<SalonAppCalendarView> {
               Expanded(
                 child: SizedBox(
                   child: GridView.builder(
-                      padding: EdgeInsets.zero,
-                      itemCount:
-                          categoryList.length > 7 ? 8 : categoryList.length,
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: isSmallScreen ? 2 : 3,
-                          mainAxisSpacing: 10,
-                          crossAxisSpacing: 10,
-                          childAspectRatio: 1),
-                      itemBuilder: (context, i) {
-                        final item = categoryList[i];
-                        return InkWell(
-                          onTap: () => database.selectService(item.title),
-                          child: SalonServiceTileWidget(
-                              isSelected: isSelected(item.title), item: item),
-                        );
-                      }),
+                    padding: EdgeInsets.zero,
+                    itemCount:
+                        categoryList.length > 7 ? 8 : categoryList.length,
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isSmallScreen ? 2 : 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 1),
+                    itemBuilder: (context, i) {
+                      final item = categoryList[i];
+                      return InkWell(
+                        onTap: () => database.selectService(item.title),
+                        child: SalonServiceTileWidget(
+                          isSelected: isSelected(item.title),
+                          item: item,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

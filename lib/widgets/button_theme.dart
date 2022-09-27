@@ -24,22 +24,29 @@ class ExpandedButtonView extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-            child: SizedBox(
-          child: TextButton(
+          child: SizedBox(
+            child: TextButton(
               style: ButtonStyle(
-                  padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(radius))),
-                  backgroundColor: MaterialStateProperty.all(isDisabled == true
-                      ? AppColors.blackfaddedColor
-                      : btnColor)),
+                padding: MaterialStateProperty.all(
+                  const EdgeInsets.all(16),
+                ),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(radius),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                    isDisabled == true ? AppColors.blackfaddedColor : btnColor),
+              ),
               onPressed: isDisabled ? null : () => ontap(),
-              child: Text(title,
-                  style: TextThemeProvider.heading3.copyWith(
-                      color: isDisabled
-                          ? AppColors.blackLightColor
-                          : titleColor))),
-        )),
+              child: Text(
+                title,
+                style: TextThemeProvider.heading3.copyWith(
+                    color: isDisabled ? AppColors.blackLightColor : titleColor),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

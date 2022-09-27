@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:barbershop/services/stylesheet/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -31,14 +30,16 @@ class _CustomerAppQRCodeScannerState extends State<CustomerAppQRCodeScanner> {
     debugPrint("Process started");
     setState(() => this.controller = controller);
     controller.scannedDataStream.listen((scanData) {
+      // ignore: unnecessary_null_comparison
       scanData != null
           ? showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                    title: const Text("QR Code Data"),
-                    content: Text(
-                        'Barcode Type: ${result!.format.name}   Data: ${result!.code}'),
-                  ))
+                title: const Text("QR Code Data"),
+                content: Text(
+                    'Barcode Type: ${result!.format.name}   Data: ${result!.code}'),
+              ),
+            )
           : null;
       setState(() {
         result = scanData;
@@ -50,11 +51,12 @@ class _CustomerAppQRCodeScannerState extends State<CustomerAppQRCodeScanner> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: QRView(
-              overlay: QrScannerOverlayShape(
-                  borderRadius: 15, borderColor: AppColors.activeButtonColor),
-              key: qrKey,
-              onQRViewCreated: _onQRViewCreated)),
+        child: QRView(
+            overlay: QrScannerOverlayShape(
+                borderRadius: 15, borderColor: AppColors.activeButtonColor),
+            key: qrKey,
+            onQRViewCreated: _onQRViewCreated),
+      ),
     );
   }
 
